@@ -5,7 +5,7 @@ class CandiSquasho < Gosu::Window
   def initialize
     super(800,600)
     self.caption = "Squash a Candidate!"
-    @image = Gosu::Image.new('someimage.png')
+    @image = Gosu::Image.new('edited_trump.png')
     @x = 200
     @y = 200
     @width = 50
@@ -13,7 +13,7 @@ class CandiSquasho < Gosu::Window
     @velocity_x = 5
     @velocity_y = 5
     @visible = 0
-    @fist_image = Gosu::Image.new('anotherimage.png')
+    @fist_image = Gosu::Image.new('edited_fist.png')
     @hit = 0  
     @score = 0
     @font = Gosu::Font.new(30)
