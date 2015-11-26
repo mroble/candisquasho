@@ -13,7 +13,7 @@ class CandiSquasho < Gosu::Window
     @velocity_x = 5
     @velocity_y = 5
     @visible = 0
-    @fist_image = Gosu::Image.new('edited_fist.png')
+    @poop_image = Gosu::Image.new('edited_unicorn_poop.png')
     @hit = 0  
     @score = 0
     @font = Gosu::Font.new(30)
@@ -30,7 +30,7 @@ end
       @playing = false if @time_left < 0
       @velocity_x *= -1 if @x + @width/2 > 800 || @x - @width / 2 < 0
       @velocity_y *= -1 if @y + @height/2 > 600 || @y - @height / 2 < 0
-      @visible = 30 if @visible < -10 and rand < 0.01
+      @visible = 75 if @visible < -10 and rand < 0.01
     end
   end
   def button_down(id)
@@ -38,7 +38,7 @@ end
       if (id == Gosu::MsLeft)
         if Gosu.distance(mouse_x, mouse_y, @x, @y) < 50 && @visible >= 0
           @hit = 1 
-          @score += 5
+          @score += 100
         else
           @hit = -1
           @score -= 1
@@ -58,7 +58,7 @@ end
     if @visible > 0
       @image.draw(@x - @width / 2, @y - @height / 2, 1)
     end
-    @fist_image.draw(mouse_x - 40, mouse_y - 10, 1)
+    @poop_image.draw(mouse_x - 40, mouse_y - 10, 1)
     if @hit == 0
       c = Gosu::Color::NONE
     elsif @hit == 1
