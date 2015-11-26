@@ -13,6 +13,9 @@ class CandiSquasho < Gosu::Window
     @velocity_x = 5
     @velocity_y = 5
     @visible = 0
+    @pope_image= Gosu::Image.new('edited_pope_francis.png')
+    @x_2 = 200
+    @y_2 = 200
     @poop_image = Gosu::Image.new('edited_unicorn_poop.png')
     @hit = 0  
     @score = 0
