@@ -16,6 +16,11 @@ class CandiSquasho < Gosu::Window
     @pope_image= Gosu::Image.new('edited_pope_francis.png')
     @x_2 = 200
     @y_2 = 200
+    @width_2 = 50
+    @height_2 = 43
+    @velocity_x_2 = 5
+    @velocity_y_2 = 5
+    @visible_2 = 0
     @poop_image = Gosu::Image.new('edited_unicorn_poop.png')
     @hit = 0  
     @score = 0
@@ -29,11 +34,17 @@ end
       @x += @velocity_x
       @y += @velocity_y
       @visible -= 1
+      @x_2 += @velocity_x_2
+      @y_2 += @velocity_y_2
+      @visible_2 -= 1
       @time_left = (100 - ((Gosu.milliseconds - @start_time) / 1000))
       @playing = false if @time_left < 0
       @velocity_x *= -1 if @x + @width/2 > 800 || @x - @width / 2 < 0
       @velocity_y *= -1 if @y + @height/2 > 600 || @y - @height / 2 < 0
+      @velocity_x_2 *= -1 if @x_2 + @width_2/2 > 800 || @x_2 - @width_2 / 2 < 0
+      @velocity_y_2 *= -1 if @y_2 + @height_2/2 > 600 || @y_2 - @height_2 / 2 < 0
       @visible = 75 if @visible < -10 and rand < 0.01
+      @visible_2 = 30 if @visible_2 < -10 and rand < 0.01
     end
   end
   def button_down(id)
@@ -60,6 +71,9 @@ end
   def draw
     if @visible > 0
       @image.draw(@x - @width / 2, @y - @height / 2, 1)
+    end
+    if @visible > 0
+      @pope_image.draw(@x_2 - @width / 2, @y_2 - @height / 2, 1)
     end
     @poop_image.draw(mouse_x - 40, mouse_y - 10, 1)
     if @hit == 0
