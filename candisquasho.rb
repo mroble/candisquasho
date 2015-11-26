@@ -21,6 +21,14 @@ class CandiSquasho < Gosu::Window
     @velocity_x_2 = 4
     @velocity_y_2 = 4
     @visible_2 = 0
+    @starbucks_image= Gosu::Image.new('edited_red_cup.png')
+    @x_3 = 300
+    @y_3 = 300
+    @width_3 = 40
+    @height_3 = 40
+    @velocity_x_3 = 6
+    @velocity_y_3 = 5
+    @visible_3 = 0
     @poop_image = Gosu::Image.new('edited_unicorn_poop.png')
     @hit = 0  
     @score = 0
@@ -37,14 +45,20 @@ end
       @x_2 += @velocity_x_2
       @y_2 += @velocity_y_2
       @visible_2 -= 1
+      @x_3 += @velocity_x_3
+      @y_3 += @velocity_y_3
+      @visible_3 -= 1
       @time_left = (100 - ((Gosu.milliseconds - @start_time) / 1000))
       @playing = false if @time_left < 0
       @velocity_x *= -1 if @x + @width/2 > 800 || @x - @width / 2 < 0
       @velocity_y *= -1 if @y + @height/2 > 600 || @y - @height / 2 < 0
       @velocity_x_2 *= -1 if @x_2 + @width_2/2 > 800 || @x_2 - @width_2 / 2 < 0
       @velocity_y_2 *= -1 if @y_2 + @height_2/2 > 600 || @y_2 - @height_2 / 2 < 0
+      @velocity_x_3 *= -1 if @x_3 + @width_3/2 > 800 || @x_3 - @width_3 / 2 < 0
+      @velocity_y_3 *= -1 if @y_3 + @height_3/2 > 600 || @y_3 - @height_3 / 2 < 0
       @visible = 75 if @visible < -10 and rand < 0.01
       @visible_2 = 90 if @visible_2 < -10 and rand < 0.01
+      @visible_3 = 60 if @visible_3 < -10 and rand < 0.01
     end
   end
   def button_down(id)
@@ -63,6 +77,7 @@ end
         @playing = true
         @visible = -10
         @visible_2 = -8
+        @visible_3 = -4
         @start_time = Gosu.milliseconds
         @score = 0
       end
@@ -75,6 +90,9 @@ end
     end
     if @visible_2 > 0
       @pope_image.draw(@x_2 - @width / 2, @y_2 - @height_2 / 2, 1)
+    end
+    if @visible_3 > 0
+      @starbucks_image.draw(@x_2 - @width / 2, @y_2 - @height_2 / 2, 1)
     end
     @poop_image.draw(mouse_x - 40, mouse_y - 10, 1)
     if @hit == 0
@@ -93,6 +111,7 @@ end
        @font.draw('Press the Space Bar to Play Again', 175, 350, 3)
        @visible = 20
        @visible_2 = 20
+       @visible_3 = 20
     end
   end
 end
