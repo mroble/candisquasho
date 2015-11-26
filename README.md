@@ -1,6 +1,9 @@
 # candisquasho
 A short game written in Ruby using the Gosu library
 
+
+Directions: Throw unicorn poop on Donald Trump using your mouse cursor! But be careful not to hit Pope Francis or the Red Starbucks cup!
+
 This game was based on the code from the Pragmatic Programmers Series, "Learn Game Programming with Ruby", WhackARuby game. 
 
 The following images have been taken from http://www.openclipart.org, a library of free 
