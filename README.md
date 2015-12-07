@@ -1,6 +1,7 @@
 # candisquasho
-A short game written in Ruby using the Gosu library
+A short game written in Ruby using the Gosu library. Please install gosu before playing this game. You can find directions for downloading and installing Gosu here: 
 
+https://github.com/gosu/gosu/wiki/Getting-Started-on-OS-X
 
 Directions: Throw unicorn poop on Donald Trump using your mouse cursor! But be careful not to hit Pope Francis or the Red Starbucks cup!
 
